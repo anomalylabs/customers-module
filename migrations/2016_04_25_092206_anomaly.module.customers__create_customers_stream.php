@@ -29,6 +29,7 @@ class AnomalyModuleCustomersCreateCustomersStream extends Migration
      * @var array
      */
     protected $assignments = [
+        'title',
         'first_name' => [
             'required' => true,
         ],

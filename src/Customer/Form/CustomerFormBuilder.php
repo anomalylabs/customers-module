@@ -19,30 +19,38 @@ class CustomerFormBuilder extends FormBuilder
      * @var array
      */
     protected $sections = [
-        'customer'      => [
-            'fields' => [
-                'first_name',
-                'last_name',
-                'email',
-                'phone',
-                'company',
-                'tax_number',
+        'customer' => [
+            'tabs' => [
+                'general' => [
+                    'title'  => 'anomaly.module.customers::tab.general',
+                    'fields' => [
+                        'title',
+                        'first_name',
+                        'last_name',
+                        'email',
+                        'groups',
+                        'user',
+                    ],
+                ],
+                'contact' => [
+                    'title'  => 'anomaly.module.customers::tab.contact',
+                    'fields' => [
+                        'phone',
+                        'company',
+                    ],
+                ],
+                'options' => [
+                    'title'  => 'anomaly.module.customers::tab.options',
+                    'fields' => [
+                        'tags',
+                        'tax_exempt',
+                        'tax_number',
+                        'accepts_marketing',
+                    ],
+                ],
             ],
         ],
-        'options'       => [
-            'fields' => [
-                'tax_exempt',
-                'accepts_marketing',
-            ],
-        ],
-        'relationships' => [
-            'fields' => [
-                'tags',
-                'groups',
-                'user',
-            ],
-        ],
-        'notes'         => [
+        'notes'    => [
             'fields' => [
                 'notes',
             ],

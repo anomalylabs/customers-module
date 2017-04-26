@@ -38,6 +38,16 @@ class AnomalyModuleCustomersCreateCustomersFields extends Migration
                 'mode' => 'checkbox',
             ],
         ],
+        'title'             => [
+            'type'   => 'anomaly.field_type.select',
+            'config' => [
+                'mode'    => 'radio',
+                'options' => [
+                    'mr'  => 'Mr.',
+                    'mrs' => 'Mrs.',
+                ],
+            ],
+        ],
         'accepts_marketing' => [
             'type'   => 'anomaly.field_type.boolean',
             'config' => [

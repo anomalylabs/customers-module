@@ -19,7 +19,7 @@ class AddressFormBuilder extends FormBuilder
      *
      * @var CustomerInterface|null
      */
-    protected $customer;
+    protected $customer = null;
 
     /**
      * The form sections.
@@ -27,29 +27,45 @@ class AddressFormBuilder extends FormBuilder
      * @var array
      */
     protected $sections = [
-        'customer'       => [
+        'customer' => [
             'fields' => [
                 'customer',
             ],
         ],
-        'contact'        => [
-            'fields' => [
-                'first_name',
-                'last_name',
-                'phone',
-                'company',
-            ],
-        ],
-        'street_address' => [
-            'fields' => [
-                'street_address',
-                'city',
-                'postal_code',
-                'state',
-                'country',
+        'address'  => [
+            'tabs' => [
+                'contact' => [
+                    'title'  => 'anomaly.module.customers::tab.contact',
+                    'fields' => [
+                        'first_name',
+                        'last_name',
+                        'phone',
+                        'company',
+                    ],
+                ],
+                'address' => [
+                    'title'  => 'anomaly.module.customers::tab.address',
+                    'fields' => [
+                        'street_address',
+                        'city',
+                        'state',
+                        'postal_code',
+                        'country',
+                    ],
+                ],
             ],
         ],
     ];
+
+    /**
+     * Fired when the ready to build.
+     */
+    public function onReady()
+    {
+        if ($customer = $this->getCustomer()) {
+            $this->skipField('customer');
+        }
+    }
 
     /**
      * Fired just before saving.

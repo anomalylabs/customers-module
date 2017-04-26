@@ -1,11 +1,17 @@
 <?php
 
 return [
+    'title'             => [
+        'name'         => 'Title',
+        'instructions' => 'Specify the customer\'s social title.',
+    ],
     'first_name'        => [
-        'name' => 'First Name',
+        'name'         => 'First Name',
+        'instructions' => 'Specify the customer\'s first name only.',
     ],
     'last_name'         => [
-        'name' => 'Last Name',
+        'name'         => 'Last Name',
+        'instructions' => 'Specify the customer\'s last name only.',
     ],
     'name'              => [
         'name'         => 'Name',
@@ -18,7 +24,7 @@ return [
     ],
     'slug'              => [
         'name'         => 'Slug',
-        'instructions' => 'The slug can be used when referring to this group via API.',
+        'instructions' => 'The slug is used when accessing this group via the API.',
     ],
     'description'       => [
         'name'         => 'Description',
@@ -29,21 +35,28 @@ return [
         'instructions' => 'Specify the user account this customer is associated with.',
     ],
     'tax_exempt'        => [
-        'name'   => 'Tax Exempt',
-        'choice' => [
+        'name'         => 'Tax Exempt',
+        'instructions' => [
+            'customers' => 'Is this customer tax exempt?',
+            'groups'    => 'Are customers in this group tax exempt?',
+        ],
+        'choice'       => [
             'customers' => 'Customer is tax exempt',
             'groups'    => 'Customers in this group are tax exempt',
         ],
     ],
     'accepts_marketing' => [
-        'name'   => 'Accepts Marketing',
-        'choice' => 'Customers accepts marketing',
+        'name'         => 'Accepts Marketing',
+        'instructions' => 'Is this customer OK with receiving marketing emails?',
+        'choice'       => 'Customers accepts marketing',
     ],
     'groups'            => [
-        'name' => 'Groups',
+        'name'         => 'Groups',
+        'instructions' => 'Specify the groups this custom belongs to.',
     ],
     'email'             => [
-        'name' => 'Email',
+        'name'         => 'Email',
+        'instructions' => 'Specify the customer\'s primary email address.',
     ],
     'tags'              => [
         'name'         => 'Tags',
@@ -51,20 +64,19 @@ return [
     ],
     'customer'          => [
         'name'         => 'Customer',
-        'instructions' => 'Who is this address for?',
-    ],
-    'default_address'   => [
-        'name'         => 'Default Address',
-        'instructions' => 'Specify the default address for this customer.',
+        'instructions' => 'Specify the customer this address belongs to.',
     ],
     'company'           => [
-        'name' => 'Company',
+        'name'         => 'Company',
+        'instructions' => 'Specify the company name.',
     ],
     'phone'             => [
-        'name' => 'Phone',
+        'name'         => 'Phone',
+        'instructions' => 'Specify the primary phone number.',
     ],
     'street_address'    => [
-        'name' => 'Street Address',
+        'name'         => 'Street Address',
+        'instructions' => 'Specify the street address.',
     ],
     'city'              => [
         'name' => 'City',
@@ -79,7 +91,9 @@ return [
         'name' => 'Country',
     ],
     'notes'             => [
-        'name' => 'Notes',
+        'name'         => 'Notes',
+        'instructions' => 'Enter any notes for this customer here.',
+        'warning'      => 'Notes are used for internal purposes only.',
     ],
     'tax_number'        => [
         'name' => 'Tax/VAT Number',

@@ -22,7 +22,7 @@ interface CustomerInterface extends EntryInterface
      * @return string
      */
     public function getEmail();
-    
+
     /**
      * Get the first name.
      *
