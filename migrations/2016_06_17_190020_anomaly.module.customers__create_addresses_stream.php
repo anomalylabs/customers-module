@@ -32,6 +32,7 @@ class AnomalyModuleCustomersCreateAddressesStream extends Migration
         'customer' => [
             'required' => true,
         ],
+        'name',
         'first_name',
         'last_name',
         'company',

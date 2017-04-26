@@ -29,6 +29,7 @@ class AddressFormBuilder extends FormBuilder
     protected $sections = [
         'customer' => [
             'fields' => [
+                'name',
                 'customer',
             ],
         ],

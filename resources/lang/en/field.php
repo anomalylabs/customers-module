@@ -16,7 +16,8 @@ return [
     'name'              => [
         'name'         => 'Name',
         'instructions' => [
-            'groups' => 'Specify the name of this customer group.',
+            'groups'    => 'Specify the name of this customer group.',
+            'addresses' => 'Specify the name of this address for identifying it.',
         ],
         'placeholder'  => [
             'groups' => 'Wholesalers',
