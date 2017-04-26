@@ -45,7 +45,7 @@ class CustomerTableBuilder extends TableBuilder
             'value'   => 'entry.groups.labels(null, "info")|join',
             'heading' => 'anomaly.module.customers::field.groups.name',
         ],
-        'entry.tags.labels',
+        'entry.tags.labels|join(" ")',
     ];
 
     /**

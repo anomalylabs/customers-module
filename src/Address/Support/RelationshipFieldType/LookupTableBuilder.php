@@ -19,13 +19,13 @@ class LookupTableBuilder extends \Anomaly\RelationshipFieldType\Table\LookupTabl
     protected $filters = [
         'search' => [
             'fields' => [
+                'first_name',
+                'last_name',
                 'postal_code',
                 'street_address',
                 'city',
             ],
         ],
-        'state',
-        'country',
     ];
 
     /**

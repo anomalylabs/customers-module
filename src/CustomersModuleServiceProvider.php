@@ -1,7 +1,16 @@
 <?php namespace Anomaly\CustomersModule;
 
+use Anomaly\CustomersModule\Address\AddressModel;
+use Anomaly\CustomersModule\Address\AddressRepository;
+use Anomaly\CustomersModule\Address\Contract\AddressRepositoryInterface;
+use Anomaly\CustomersModule\Customer\Contract\CustomerRepositoryInterface;
 use Anomaly\CustomersModule\Customer\CustomerModel;
+use Anomaly\CustomersModule\Customer\CustomerRepository;
+use Anomaly\CustomersModule\Group\Contract\GroupRepositoryInterface;
+use Anomaly\CustomersModule\Group\GroupRepository;
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Model\Customers\CustomersAddressesEntryModel;
+use Anomaly\Streams\Platform\Model\Customers\CustomersCustomersEntryModel;
 use Anomaly\UsersModule\User\UserModel;
 
 /**
@@ -42,8 +51,8 @@ class CustomersModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\Streams\Platform\Model\Customers\CustomersAddressesEntryModel' => 'Anomaly\CustomersModule\Address\AddressModel',
-        'Anomaly\Streams\Platform\Model\Customers\CustomersCustomersEntryModel' => 'Anomaly\CustomersModule\Customer\CustomerModel',
+        CustomersAddressesEntryModel::class => AddressModel::class,
+        CustomersCustomersEntryModel::class => CustomerModel::class,
     ];
 
     /**
@@ -52,9 +61,9 @@ class CustomersModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\CustomersModule\Group\Contract\GroupRepositoryInterface'       => 'Anomaly\CustomersModule\Group\GroupRepository',
-        'Anomaly\CustomersModule\Address\Contract\AddressRepositoryInterface'   => 'Anomaly\CustomersModule\Address\AddressRepository',
-        'Anomaly\CustomersModule\Customer\Contract\CustomerRepositoryInterface' => 'Anomaly\CustomersModule\Customer\CustomerRepository',
+        GroupRepositoryInterface::class    => GroupRepository::class,
+        AddressRepositoryInterface::class  => AddressRepository::class,
+        CustomerRepositoryInterface::class => CustomerRepository::class,
     ];
 
     /**

@@ -37,8 +37,6 @@ class AddressTableBuilder extends TableBuilder
                 'city',
             ],
         ],
-        'state',
-        'country',
     ];
 
     /**
@@ -47,7 +45,7 @@ class AddressTableBuilder extends TableBuilder
      * @var array|string
      */
     protected $columns = [
-        'entry.customer.name',
+        'entry.name',
         'entry.street_address.lines|join(", ")',
         'postal_code',
         'state',
@@ -77,6 +75,27 @@ class AddressTableBuilder extends TableBuilder
     protected $actions = [
         'delete',
     ];
+
+    /**
+     * Fired when ready to build.
+     */
+    public function onReady()
+    {
+        if ($customer = $this->getCustomer()) {
+
+            $this->setOption('sortable', true);
+
+            $this->setOption(
+                'title',
+                $customer->getFirstName() . ' ' . $customer->getLastName()
+            );
+
+            $this->setOption(
+                'description',
+                $customer->getEmail()
+            );
+        }
+    }
 
     /**
      * Fired before querying.

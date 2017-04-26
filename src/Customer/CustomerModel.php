@@ -1,7 +1,7 @@
 <?php namespace Anomaly\CustomersModule\Customer;
 
 use Anomaly\CustomersModule\Address\AddressCollection;
-use Anomaly\CustomersModule\Address\Contract\AddressInterface;
+use Anomaly\CustomersModule\Address\AddressModel;
 use Anomaly\CustomersModule\Customer\Contract\CustomerInterface;
 use Anomaly\CustomersModule\Group\Command\GetGroup;
 use Anomaly\CustomersModule\Group\Contract\GroupInterface;
@@ -20,6 +20,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class CustomerModel extends CustomersCustomersEntryModel implements CustomerInterface
 {
+
+    /**
+     * Get the email.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * Get the first name.
@@ -42,16 +52,6 @@ class CustomerModel extends CustomersCustomersEntryModel implements CustomerInte
     }
 
     /**
-     * Get the related default address.
-     *
-     * @return AddressInterface|null
-     */
-    public function getDefaultAddress()
-    {
-        return $this->default_address;
-    }
-
-    /**
      * Get the related addresses.
      *
      * @return AddressCollection
@@ -68,7 +68,7 @@ class CustomerModel extends CustomersCustomersEntryModel implements CustomerInte
      */
     public function addresses()
     {
-        return $this->hasMany('Anomaly\CustomersModule\Address\AddressModel', 'customer_id');
+        return $this->hasMany(AddressModel::class, 'customer_id');
     }
 
     /**

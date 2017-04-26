@@ -37,7 +37,7 @@ class CustomerFormBuilder extends FormBuilder
         ],
         'relationships' => [
             'fields' => [
-                'default_address',
+                'tags',
                 'groups',
                 'user',
             ],

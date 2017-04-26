@@ -14,6 +14,13 @@ class CustomersModule extends Module
 {
 
     /**
+     * The addon icon.
+     *
+     * @var string
+     */
+    protected $icon = 'users';
+
+    /**
      * The module sections.
      *
      * @var array

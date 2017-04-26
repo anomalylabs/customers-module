@@ -26,8 +26,6 @@ class LookupTableBuilder extends \Anomaly\RelationshipFieldType\Table\LookupTabl
             ],
         ],
         'groups',
-        'tax_exempt',
-        'accepts_marketing',
     ];
 
     /**
@@ -42,6 +40,6 @@ class LookupTableBuilder extends \Anomaly\RelationshipFieldType\Table\LookupTabl
             'value'   => 'entry.groups.labels(null, "info")|join',
             'heading' => 'anomaly.module.customers::field.groups.name',
         ],
-        'entry.tags.labels',
+        'entry.tags.labels|join(" ")',
     ];
 }
